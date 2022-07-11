@@ -1,0 +1,7 @@
+#!/bin/bash
+cd playbook;
+echo "Start docker containers:";
+docker start ubuntu centos7 fedora;
+ansible-playbook -i inventory/prod.yml site.yml --ask-vault-pass;
+echo "Stopt docker containers:";
+docker stop ubuntu centos7 fedora;
